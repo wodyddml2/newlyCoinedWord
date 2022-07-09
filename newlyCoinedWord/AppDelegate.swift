@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        sleep(3)
+        // 사용자들에게 시작화면을 표시하고 빠르게 첫 번째 화면으로 넘어감으로서 사람들에게 경험이 빠르고 반응이 좋다는 인상을 준다. 모든 플랫폼에서 시작 화면이 필요한 것은 아닌다. ios와 ipad tvos 앱은 제공. 시작 화면에 텍스트,광고,지연 시키는 화면 포함x
+        // 삭제는 해도 상관 없으나 human-interface-guideline의 말처럼 시작화면이 사용자 경험에 대한 인식을 빠르게 시작하고 즉시 사용할 수 있다는 인식을 높인다고 하는데 정말 삭제하고 구동시키면 뭔가 밋밋하다랄까 시작 화면에 익숙해져있는 탓일까 조금 거리감이 있다.
         return true
     }
 
