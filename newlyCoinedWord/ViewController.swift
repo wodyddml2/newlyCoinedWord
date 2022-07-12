@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         searchBar.delegate = self
         
-//        resultHash(hashTagNomalName)
+        //        resultHash(hashTagNomalName)
         resultHash(hashTagDefault.꾸안꾸.rawValue, 0)
         resultHash(hashTagDefault.볼매.rawValue, 1)
         resultHash(hashTagDefault.만반잘부.rawValue, 2)
@@ -75,6 +75,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func gestureKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    
+    func showAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let copy = UIAlertAction(title: "복사", style: .default, handler: nil)
+        let impormation = UIAlertAction(title: "정보", style: .destructive, handler: nil)
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(impormation)
+        alert.addAction(copy)
+        alert.addAction(cancle)
+        alert.addAction(ok)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func hashTagButton(_ sender: UIButton) {
+        showAlert()
     }
     
 }
