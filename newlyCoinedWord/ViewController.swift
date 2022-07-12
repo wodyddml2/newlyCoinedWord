@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum hashTagDefault: String {
+    case 만반잘부
+    case 꾸안꾸
+    case 볼매
+    case 인싸
+}
+
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet var hashTag: [UIButton]!
@@ -15,25 +22,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let newWord: [String:[String]] = ["hi":["안녕","1","2","3","4"],"bye":["잘가","1","2","5","4"],"hello":["안녕ㅇ","1","2","6","4"],"good":["좋다","1","2","7","4"],"king":["왕","1","2","8","4"]]
     
-    let hashTagNomalName: [String] = ["만반잘부", "꾸안꾸", "볼매", "인싸"]
+//    let hashTagNomalName: [String] = ["만반잘부", "꾸안꾸", "볼매", "인싸"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         
-        resultHash(hashTagNomalName)
+//        resultHash(hashTagNomalName)
+        resultHash(hashTagDefault.꾸안꾸.rawValue, 0)
+        resultHash(hashTagDefault.볼매.rawValue, 1)
+        resultHash(hashTagDefault.만반잘부.rawValue, 2)
+        resultHash(hashTagDefault.인싸.rawValue, 3)
     }
     
-    func resultHash(_ a: [String]) {
+    func resultHash(_ a: String, _ b: Int) { // a: [String]
         for i in 0...hashTag.count - 1 {
             hashTag[i].layer.borderWidth = 2
             hashTag[i].layer.borderColor = UIColor.black.cgColor
             hashTag[i].layer.masksToBounds = true
             hashTag[i].layer.cornerRadius = 8
-            hashTag[i].setTitle(a[i], for: .normal)
+//            hashTag[i].setTitle(a[i], for: .normal)
             hashTag[i].setTitleColor(.black, for: .normal)
             hashTag[i].setTitleColor(.clear, for: .highlighted)
         }
+        hashTag[b].setTitle(a, for: .normal)
     }
     
     func resultText() {
